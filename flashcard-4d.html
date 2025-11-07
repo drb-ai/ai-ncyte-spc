@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4D Flashcards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .card-container {
+            perspective: 1000px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            min-height: 400px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.4);
+        }
+
+        .dimension-label {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-content {
+            font-size: 1.3em;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .term {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: #f0f0f0;
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .dimension-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .dimension-btn {
+            padding: 10px 20px;
+            font-size: 0.9em;
+        }
+
+        .dimension-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .progress {
+            color: white;
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Science Flashcards</h1>
+        
+        <div class="controls">
+            <button onclick="prevCard()">← Previous</button>
+            <button onclick="nextCard()">Next →</button>
+        </div>
+
+        <div class="dimension-buttons">
+            <button class="dimension-btn active" onclick="showDimension(0)">Term</button>
+            <button class="dimension-btn" onclick="showDimension(1)">Definition</button>
+            <button class="dimension-btn" onclick="showDimension(2)">Example</button>
+            <button class="dimension-btn" onclick="showDimension(3)">Analogy</button>
+        </div>
+
+        <div class="card-container">
+            <div class="card" onclick="nextDimension()">
+                <div class="dimension-label" id="dimension-label">Term</div>
+                <div class="card-content" id="card-content"></div>
+            </div>
+        </div>
+
+        <div class="progress" id="progress"></div>
+    </div>
+
+    <script>
+        const flashcards = [
+            {
+                term: "Dependent Variable",
+                definition: "The variable being measured or tested in an experiment that responds to changes in the independent variable.",
+                example: "In an experiment testing how sunlight affects plant growth, the height of the plant is the dependent variable because it depends on the amount of sunlight.",
+                analogy: "Like a thermometer reading that changes based on the temperature around it - the reading (dependent) responds to the heat (independent)."
+            },
+            {
+                term: "Independent Variable",
+                definition: "The variable that is deliberately changed or manipulated by the researcher to observe its effect on the dependent variable.",
+                example: "In a study testing how study time affects test scores, the number of hours spent studying is the independent variable that the researcher controls.",
+                analogy: "Like a remote control for a TV - you choose what channel to switch to (independent), and the TV display changes as a result (dependent)."
+            },
+            {
+                term: "Positive Control",
+                definition: "A control group that is exposed to conditions known to produce a specific result, used to verify that the experiment is working properly.",
+                example: "When testing a new antibiotic, including a group treated with a known effective antibiotic serves as a positive control to confirm bacteria can be killed.",
+                analogy: "Like checking if a metal detector works by passing a coin through it - you know it should beep, so if it does, the detector is working correctly."
+            },
+            {
+                term: "Negative Control",
+                definition: "A control group that is not exposed to the experimental treatment and should produce no change, used to show that results are due to the treatment.",
+                example: "In a drug trial, giving one group a placebo (sugar pill) with no active ingredient serves as a negative control to compare against the actual drug.",
+                analogy: "Like watering one plant with plain water while testing fertilizer on another - the plain water plant shows what happens without treatment."
+            },
+            {
+                term: "Replicate",
+                definition: "Repeating an experiment or including multiple identical samples to ensure results are consistent and not due to chance.",
+                example: "Instead of testing one seed with fertilizer, a scientist plants 20 seeds with fertilizer and 20 without to replicate the experiment and get reliable data.",
+                analogy: "Like flipping a coin many times instead of just once - multiple trials give you confidence that your results are real and not just lucky."
+            }
+        ];
+
+        const dimensions = ['term', 'definition', 'example', 'analogy'];
+        const dimensionLabels = ['Term', 'Definition', 'Example', 'Analogy'];
+        
+        let currentCard = 0;
+        let currentDimension = 0;
+
+        function updateCard() {
+            const card = flashcards[currentCard];
+            const dimension = dimensions[currentDimension];
+            const content = document.getElementById('card-content');
+            const label = document.getElementById('dimension-label');
+            
+            label.textContent = dimensionLabels[currentDimension];
+            
+            if (dimension === 'term') {
+                content.innerHTML = `<div class="term">${card[dimension]}</div>`;
+            } else {
+                content.innerHTML = card[dimension];
+            }
+            
+            document.getElementById('progress').textContent = 
+                `Card ${currentCard + 1} of ${flashcards.length}`;
+            
+            // Update dimension button states
+            document.querySelectorAll('.dimension-btn').forEach((btn, idx) => {
+                btn.classList.toggle('active', idx === currentDimension);
+            });
+        }
+
+        function nextCard() {
+            currentCard = (currentCard + 1) % flashcards.length;
+            updateCard();
+        }
+
+        function prevCard() {
+            currentCard = (currentCard - 1 + flashcards.length) % flashcards.length;
+            updateCard();
+        }
+
+        function nextDimension() {
+            currentDimension = (currentDimension + 1) % dimensions.length;
+            updateCard();
+        }
+
+        function showDimension(idx) {
+            currentDimension = idx;
+            updateCard();
+        }
+
+        // Initialize
+        updateCard();
+    </script>
+</body>
+</html>
