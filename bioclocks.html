@@ -1,295 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>60-Minute Scientific Paper Breakdown: Biological Clocks</title>
-    <style>
-        :root {
-            --primary-color: #007bff; /* Blue */
-            --secondary-color: #28a745; /* Green */
-            --accent-color: #ffc107; /* Yellow */
-            --background-light: #f8f9fa;
-            --text-dark: #343a40;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--background-light);
-            padding: 20px;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 10px;
-            margin-top: 25px;
-        }
-        .progress-bar {
-            height: 25px;
-            background-color: #e9ecef;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-        .progress {
-            height: 100%;
-            width: 0%;
-            background-color: var(--secondary-color);
-            border-radius: 5px;
-            text-align: center;
-            color: white;
-            line-height: 25px;
-            transition: width 0.5s ease;
-        }
-        .section-box {
-            border: 1px solid #dee2e6;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .section-box:hover {
-            background-color: #e2e6ea;
-        }
-        .section-content {
-            display: none;
-            margin-top: 10px;
-            padding: 10px 0 10px 20px;
-            border-left: 3px solid var(--accent-color);
-            background-color: #fffaf0;
-        }
-        .hint-button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        .hint-content {
-            display: none;
-            border-left: 3px solid var(--secondary-color);
-            padding-left: 10px;
-            margin-top: 10px;
-            background-color: #f1fff1;
-        }
-        textarea {
-            width: 100%;
-            min-height: 100px;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-        .checklist ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        .checklist li {
-            background: #e9f0ff;
-            margin-bottom: 5px;
-            padding: 8px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .checklist li.checked {
-            background: var(--secondary-color);
-            color: white;
-            text-decoration: line-through;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biological Clocks: Interactive Lesson</title>
+  <style>
+    /* Basic reset */
+    body { margin:0; padding:0; font-family: Arial, sans-serif; line-height:1.6; color:#333; background:#f9f9f9; }
+    header, nav, section, footer { padding:20px; max-width:800px; margin:auto; }
+    header { background:#0044a2; color:#fff; }
+    nav a { margin-right:15px; color:#fff; text-decoration:none; }
+    nav a:hover { text-decoration:underline; }
+    h1, h2, h3 { color:#0044a2; }
+    .highlight { background:#ffdd57; padding:2px 6px; border-radius:4px; }
+    .quiz { background:#e9f5ff; padding:15px; border:1px solid #b3d4ff; margin-20px 0; }
+    .slider-container { margin:20px 0; }
+    .slider-label { margin-bottom:6px; display:block; }
+    .result { margin:10px 0; padding:10px; background:#fff; border:1px solid #ccc; }
+  </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>🔬 Demystifying Scientific Papers: The Biological Clock (60-Minute Session)</h1>
-    <p><strong>Goal:</strong> Engage with primary biological literature and identify the key elements of a scientific paper to understand the complex **Drosophila Circadian Rhythm**[cite: 164].</p>
+<header>
+  <h1>Interactive Lesson: Biological Clocks</h1>
+  <nav>
+    <a href="#intro">Intro</a>
+    <a href="#howitworks">How It Works</a>
+    <a href="#whyitmatters">Why It Matters</a>
+    <a href="#research">New Research</a>
+    <a href="#interactive">Interactive</a>
+    <a href="#summary">Summary</a>
+  </nav>
+</header>
 
-    <h2>Session Progress</h2>
-    <div class="progress-bar">
-        <div id="session-progress" class="progress">0% Complete (0/60 min)</div>
-    </div>
+<section id="intro">
+  <h2>What is a Biological Clock?</h2>
+  <p>Your body has an internal time-keeping system often called the <span class="highlight">circadian rhythm</span>, which regulates when you sleep, when you’re alert, when hormones are released, and many other processes. :contentReference[oaicite:7]{index=7}</p>
+</section>
 
-    <hr>
+<section id="howitworks">
+  <h2>How It Works: Master & Peripheral Clocks</h2>
+  <p>The “master clock” lives in the brain in the region called the <span class="highlight">suprachiasmatic nucleus (SCN)</span>. It sends signals to clocks in nearly every tissue in your body. :contentReference[oaicite:8]{index=8}</p>
+  <p>These internal clocks are synchronized by cues like light, food, activity, and social cues. When misaligned (jet-lag, shift work, late eating) various health problems can arise. :contentReference[oaicite:9]{index=9}</p>
+</section>
 
-    <h2 id="phase1">Phase 1: Headline or Hype? (15 min)</h2>
-    <p>Let's use the **"Headline or Hype?"** strategy[cite: 167]. Click on a dense snippet from the circadian literature to break down the scientific jargon and reduce the fear of the whole paper[cite: 174].</p>
+<section id="whyitmatters">
+  <h2>Why Alignment Matters</h2>
+  <p>Disruption of your internal clock is linked to: metabolic disorders, mood disorders, cardiovascular disease, impaired muscle recovery, ageing effects. :contentReference[oaicite:10]{index=10}</p>
+  <p>For example: in adolescents, those overweight or obese tend to eat more calories in the circadian evening period, which is tied to internal clock timing. :contentReference[oaicite:11]{index=11}</p>
+</section>
 
-    <div class="section-box" onclick="toggleContent('snippet1')">
-        <strong>Snippet 1:</strong> "The doubletime kinase... is actually the agent, which contributes to the degradation of the period protein, which kills the pink proteins." [cite: 147, 153]
-    </div>
-    <div id="snippet1" class="section-content">
-        <p><strong>What it's about:</strong> This is a **Mechanism of Action**. The **DOUBLETIME (DBT) kinase** is an enzyme (a killer!) whose job is to destroy the **PERIOD (PER)** protein[cite: 147, 153]. This destruction is a critical step in resetting the clock's cycle.</p>
-        <p><strong>Keywords:</strong> *Kinase*, *degradation*, *period protein*.</p>
-    </div>
+<section id="research">
+  <h2>Recent Research Highlights</h2>
+  <ul>
+    <li>Muscle cells have their own clocks; shift-work disrupting them can accelerate aging of muscle. :contentReference[oaicite:12]{index=12}</li>
+    <li>Novel LED lights (blue + orange) can more effectively shift melatonin and reset circadian phase. :contentReference[oaicite:13]{index=13}</li>
+    <li>Humans remain seasonal creatures—day-length still influences our physiology despite indoor living. :contentReference[oaicite:14]{index=14}</li>
+    <li>Biological age/epigenetic clocks show organs age at different rates; better tools needed. :contentReference[oaicite:15]{index=15}</li>
+  </ul>
+</section>
 
-    <div class="section-box" onclick="toggleContent('snippet2')">
-        <strong>Snippet 2:</strong> "When the sun comes up, notice that that sunlight quickly causes the degradation of the timeless protein..." [cite: 144]
-    </div>
-    <div id="snippet2" class="section-content">
-        <p><strong>What it's about:</strong> This is a **Key Regulatory Input**. **Light** is the crucial external signal that causes the rapid destruction of the **TIMELESS (TIM)** protein[cite: 144]. This is how the clock synchronizes with the environment (the day/night cycle).</p>
-        <p><strong>Keywords:</strong> *Sunlight*, *degradation*, *timeless protein*.</p>
-    </div>
-    
-    <hr>
+<section id="interactive">
+  <h2>Interactive Exercise</h2>
+  <div class="slider-container">
+    <label class="slider-label" for="lightTime">What time do you expose yourself to bright light in the morning? (0 = midnight, 12 = noon)</label>
+    <input type="range" id="lightTime" min="0" max="24" value="7">
+    <div class="result" id="lightResult">You’ve selected 7:00 AM</div>
+  </div>
 
-    <h2 id="phase2">Phase 2: The Paper Structure - IMRAD & The Funnel (15 min)</h2>
-    <p>Scientific papers follow the **IMRAD** format: **I**ntroduction, **M**ethods, **R**esults, **a**nd **D**iscussion[cite: 5]. Understanding this structure is crucial for efficiency[cite: 6].</p>
-        
-    <div class="section-box" onclick="toggleContent('abstract')">
-        <strong>1. Abstract: The Elevator Pitch & "Go or No Go?"</strong>
-    </div>
-    <div id="abstract" class="section-content">
-        <p><strong>Purpose:</strong> A brief summary of the entire paper (question, methods, key findings, and main conclusions)[cite: 11].</p>
-        <p><strong>Trick:</strong> Read this first to quickly decide: **Go or No Go?** Is the paper relevant? Is it worth any more time? [cite: 108, 120, 121, 122]</p>
-    </div>
+  <script>
+    const slider = document.getElementById('lightTime');
+    const resultDiv = document.getElementById('lightResult');
+    slider.addEventListener('input', (e) => {
+      const val = e.target.value;
+      resultDiv.textContent = `You’ve selected ${val}:00 hours`;
+      if(val < 6) {
+        resultDiv.style.background = '#ffdddd';
+        resultDiv.textContent += " — That’s very early! Good morning light helps, but ensure enough sleep.";
+      } else if(val < 9) {
+        resultDiv.style.background = '#ddffdd';
+        resultDiv.textContent += " — Great! Morning bright light helps synchronise your body-clock.";
+      } else {
+        resultDiv.style.background = '#fff5cc';
+        resultDiv.textContent += " — Later morning light may delay your clock a bit. Consider earlier exposure.";
+      }
+    });
+  </script>
 
-    <div class="section-box" onclick="toggleContent('introduction')">
-        <strong>2. Introduction: The Funnel</strong>
-    </div>
-    <div id="introduction" class="section-content">
-        <p>The introduction provides **Background Information** (context) and then narrows down to define what is **not known** (the **Problem Statement**) and the specific **Hypothesis/Research Question**[cite: 15, 17, 18, 34].</p>
-        <p><strong>Trick:</strong> Skim by reading only the **first sentence of each paragraph** to quickly grasp the context and identify the main question[cite: 106].</p>
-    </div>
+  <div class="quiz">
+    <h3>Quiz: Choose the correct answer</h3>
+    <p>Which of these is *not* a cue that synchronises your internal clocks?</p>
+    <button id="q1a" data-correct="false">Light exposure</button>
+    <button id="q1b" data-correct="true">Eating spicy food at exactly 3 pm</button>
+    <button id="q1c" data-correct="false">Physical activity</button>
+    <button id="q1d" data-correct="false">Social interaction/time with others</button>
+    <div id="quizResult"></div>
+  </div>
 
-    <div class="section-box" onclick="toggleContent('methods')">
-        <strong>3. Methods: The Recipe</strong>
-    </div>
-    <div id="methods" class="section-content">
-        <p><strong>Purpose:</strong> Details the study design and procedures so the experiment can be replicated[cite: 38, 39, 43].</p>
-        <p><strong>Trick:</strong> **Don't panic!** For a first read, focus only on the study **design** (e.g., *Drosophila* genetic screen, cell culture assay) and not every chemical recipe[cite: 110, 184].</p>
-    </div>
-    
-    <hr>
-
-    <h2 id="phase3">Phase 3: Figure Detective: The Clock Loop (25 min)</h2>
-    <p>The **figures and legends contain the core evidence and results**[cite: 66, 112, 182, 193]. We will focus on the **Drosophila Circadian Loop**[cite: 132].</p>
-        
-    <div style="border: 2px dashed var(--primary-color); padding: 15px; margin: 15px 0;">
-        <p><strong>Figure Context: The Light-Regulated Switch</strong></p>
-        <p>The **PERIOD (PER)** and **TIMELESS (TIM)** proteins form a heterodimer and migrate to the nucleus to shut down (repress) their own transcription, ending the night cycle[cite: 136, 139, 143]. **The key question is: How does the cycle turn back on in the morning?**</p>
-        <p>We know that light activates the **CRYPTOCHROME (CRY)** protein, which then leads to the very rapid **degradation of the TIM component**[cite: 144, 154]. Once TIM is gone, PER is unstable and is degraded by the DBT kinase, allowing transcription to resume[cite: 147, 152].</p>
-    </div>
-
-    <p><strong>TASK: Group Analysis (Answer the questions in the box)</strong></p>
-    <textarea id="figure-analysis" placeholder="Based on this context:
-1. What is the single, primary external signal that starts the day cycle?
-2. Why is the degradation of the TIM protein the immediate 'switch' for the clock to restart?
-3. What is one potential limitation of studying this light switch in a lab (e.g., using constant light)?"></textarea>
-    <button class="hint-button" onclick="toggleContent('feedback')">Submit & See Suggested Analysis</button>
-
-    <div id="feedback" class="hint-content">
-        <strong>Suggested Analysis:</strong>
-        <ol>
-            <li><strong>External Signal:</strong> Sunlight (or light)[cite: 144, 154].</li>
-            <li><strong>Why TIM is the Switch:</strong> The PER/TIM heterodimer is the *repressor* that stops gene expression. When light degrades TIM, the repressor complex breaks, allowing the **CLOCK** and **CYC** factors to turn transcription back on[cite: 139, 140, 154].</li>
-            <li><strong>Potential Limitation:</strong> Constant light would continuously degrade TIM, preventing the repressors from accumulating, which would stop the clock from oscillating (i.e., the cycle would be broken).</li>
-        </ol>
-    </div>
-    
-    <hr>
-
-    <h2 id="phase4">Phase 4: Reflection & The Six Questions (5 min)</h2>
-    <p>Use this checklist to reflect on your reading process and ensure you extracted all key information.</p>
-    
-    <h3>The Critical Six-Question Checklist</h3>
-    <div class="checklist">
-        <ul>
-            <li onclick="toggleCheck(this)">1. What is the author's **Motivation** (the main Question/Hypothesis)? [cite: 18]</li>
-            <li onclick="toggleCheck(this)">2. What did they **Do** (the key Methods/Study Design)? [cite: 40, 123]</li>
-            <li onclick="toggleCheck(this)">3. What do the **Results** show (the data/Figures)? [cite: 66, 126]</li>
-            <li onclick="toggleCheck(this)">4. How did they **Interpret** the results (the Discussion)? [cite: 76, 128]</li>
-            <li onclick="toggleCheck(this)">5. What are the **Implications** (the "So What?")? [cite: 79]</li>
-            <li onclick="toggleCheck(this)">6. What's the **Next Step** (Future Directions)? [cite: 80]</li>
-        </ul>
-    </div>
-
-    <p><strong>Reflection Prompt:</strong> Write 1-2 sentences about one thing you learned about reading papers and one thing that still feels challenging[cite: 204, 205].</p>
-    <textarea placeholder="I learned that the Figures are the heart of the paper, not the text. The hardest part is still the detailed scientific jargon in the Methods section."></textarea>
-
-
-    <script>
-        // JavaScript for interactivity and timing
-        
-        // Function to toggle the display of content sections
-        function toggleContent(id) {
-            const content = document.getElementById(id);
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
+  <script>
+    const quizButtons = document.querySelectorAll('.quiz button');
+    const quizResult = document.getElementById('quizResult');
+    quizButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const correct = e.target.getAttribute('data-correct');
+        if (correct === 'true') {
+          quizResult.textContent = "Correct! Eating spicy at exactly 3 pm is *not* a primary synchroniser — (though food timing *is* a cue, but the question asked for “not”).";
+          quizResult.style.color = 'green';
+        } else {
+          quizResult.textContent = "Not quite. Try again!";
+          quizResult.style.color = 'red';
         }
+      });
+    });
+  </script>
 
-        // Function to toggle checklist item
-        function toggleCheck(li) {
-            li.classList.toggle('checked');
-        }
+</section>
 
-        // Session Timing and Progress Bar Logic based on scrolling
-        const totalTime = 60; // minutes
-        let currentTime = 0;
+<section id="summary">
+  <h2>Summary & Tips</h2>
+  <p>In summary: Your biological clock is a powerful regulator of your health. Light, food, movement, social cues all help synchronise it. Misalignment raises risks for many conditions. Use the latest research-based tips:</p>
+  <ul>
+    <li>Get at least ~30 minutes of natural bright light soon after waking. :contentReference[oaicite:16]{index=16}</li>
+    <li>Avoid high-blue-light screens in the late evening. :contentReference[oaicite:17]{index=17}</li>
+    <li>Maintain regular eating and activity times. :contentReference[oaicite:18]{index=18}</li>
+    <li>If you’re working night shifts or travel often, pay extra attention to light cues and recovery strategies. :contentReference[oaicite:19]{index=19}</li>
+  </ul>
+</section>
 
-        // Approximate time for each phase in minutes
-        const phaseTimes = {
-            'phase1': 15, // Warm-Up
-            'phase2': 15, // Guided Walkthrough
-            'phase3': 25, // Figure Detective
-            'phase4': 5   // Reflection
-        };
-
-        function updateProgress() {
-            let elapsed = 0;
-            const scrollY = window.scrollY;
-            const containerHeight = document.body.scrollHeight - window.innerHeight;
-
-            // Calculate progress based on scroll depth (a proxy for session progression)
-            if (containerHeight > 0) {
-                // Determine which phase we are currently in based on scroll position
-                const phase1Top = document.getElementById('phase1').offsetTop;
-                const phase2Top = document.getElementById('phase2').offsetTop;
-                const phase3Top = document.getElementById('phase3').offsetTop;
-                const phase4Top = document.getElementById('phase4').offsetTop;
-
-                if (scrollY >= phase4Top) {
-                    elapsed = totalTime;
-                } else if (scrollY >= phase3Top) {
-                    elapsed = phaseTimes.phase1 + phaseTimes.phase2 + phaseTimes.phase3 * ((scrollY - phase3Top) / (phase4Top - phase3Top));
-                } else if (scrollY >= phase2Top) {
-                    elapsed = phaseTimes.phase1 + phaseTimes.phase2 * ((scrollY - phase2Top) / (phase3Top - phase2Top));
-                } else if (scrollY >= phase1Top) {
-                    elapsed = phaseTimes.phase1 * ((scrollY - phase1Top) / (phase2Top - phase1Top));
-                }
-            } else {
-                // Default to 0 if the page is too small to scroll
-                elapsed = 0;
-            }
-
-            // Cap elapsed time at 60 minutes
-            currentTime = Math.min(Math.ceil(elapsed), totalTime);
-            
-            const percentage = (currentTime / totalTime) * 100;
-            const progressBar = document.getElementById('session-progress');
-            progressBar.style.width = percentage + '%';
-            progressBar.textContent = Math.round(percentage) + '% Complete (' + currentTime + '/' + totalTime + ' min)';
-        }
-
-        // Update progress on page load and on scroll
-        window.onload = updateProgress;
-        window.onscroll = updateProgress;
-    </script>
-</div>
+<footer>
+  <p>References: See embedded links to latest research and fact sheets.</p>
+</footer>
 
 </body>
 </html>
